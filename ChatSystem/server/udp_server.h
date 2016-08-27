@@ -23,7 +23,7 @@ class udp_server{
 		bool register_user(const struct sockaddr_in &client, std::string&);
 
 	public:
-		udp_server(unsigned short _port = 8080);
+		udp_server(unsigned short _port = 8888);
 		int init_server();
 		int reliable_send_msg(const std::string &_in_msg,\
 				const struct sockaddr_in &client,\

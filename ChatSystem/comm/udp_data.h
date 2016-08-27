@@ -27,8 +27,9 @@ class udp_data{
         bool val_to_str(std::string &_out_msg);
         bool str_to_val(std::string &_in_msg);
 		~udp_data();
-	private:
+	public:
 		std::string nick_name;
+	private:
 		std::string school;
 		std::string msg;
 		std::string cmd;

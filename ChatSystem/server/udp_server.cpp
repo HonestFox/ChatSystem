@@ -25,8 +25,10 @@ bool udp_server::register_user(const struct sockaddr_in &client, std::string &_m
     	if( _iter != online_user.end() ){
     		return false;
     	}
-    	online_user.insert(std::pair<std::string, struct sockaddr_in>(_ip_key, client));
-    	print_log("register done...");
+     //   online_user.insert(std::pair<std::string, struct sockaddr_in>(_ip_key, client));
+    	online_user.insert(std::pair<std::string, struct sockaddr_in>(_data.nick_name, client));
+    	
+	print_log("register done...");
 	}else if(_cmd == "CMD-QUIT"){
 		std::cout<<"erase user "<<_ip_key<<std::endl;
 		online_user.erase(_ip_key);

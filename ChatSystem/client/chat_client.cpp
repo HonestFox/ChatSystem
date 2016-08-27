@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <vector>
 #include <signal.h>
+#include <algorithm>
 #include "udp_client.h"
 #include "window.h"
 
@@ -59,9 +60,12 @@ void *client_output(void *arg)
 			std::string show_msg = nick_name;
 			show_msg += "-";
 			show_msg += school;
-
-			list.push_back(show_msg);
-
+//			std::vector<std::string>::iterator it_tmp = std::find( list.begin(), list.end(), show_msg );
+			std::vector<std::string>::iterator it_tmp = std::find( list.begin(), list.end(), show_msg );    //algorithm
+			if( list.end() == it_tmp )
+			{
+				list.push_back(show_msg);
+			}
 			show_msg += ": ";
 			show_msg += info;
 			win.put_str_to_win(win.get_output(), total++, 2, show_msg);
